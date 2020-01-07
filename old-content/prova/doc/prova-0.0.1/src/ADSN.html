@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{-|
+Module      : ADS Noite
+Description : Prova ADS Noite
+Copyright   : (c) Alexandre Garcia, 2016
+                  Eric Andrade, 2016
+License     : GPL-3
+Maintainer  : no@reply.c-m
+Stability   : experimental
+
+
+Prova de ADS Noite
+Coment&#225;rios @#Corre&#231;&#227;o de Prova @.
+-}</span><span>
+</span><a name="line-14"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">ADSN</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span class="hs-comment">{-|
+* Corre&#231;&#227;o da prova de ADS Noite
+
+
+    * 1. (valor 2.5 pontos)
+        *(a) (1.0) Monte uma express&#227;o lambda para o que se pede
+
+            * i. Para verificar se o reverso do reverso de uma lista &#233; sempre ela mesmo (isso &#233; usado em testes de software)
+
+                @
+                (\xs -&gt; (`reverse` . `reverse`) xs )
+                @
+
+            * ii. Para deixar todas as letras com caixa baixa (use o `toLower` :: `Char` -&gt; `Char` que deixa um char por vez em caixa baixa)
+
+                @
+                (\xs -&gt;  `map` `toLower` xs )
+                @
+                
+            * iii. Para verificar se o tamanho de uma lista &#233; par e menor que 144. 
+
+                @
+                (\xs -&gt;  (`mod` (`length` xs) 2) == 0 &amp;&amp; (`length` xs) &lt; 144)
+                @
+            
+            * iv. Para verficiar o maior entre os n&#250;meros y e 9.
+
+                @
+                (\y -&gt; `max` y 9)
+                @
+            
+
+        *(b) (0.5) D&#234; o tipo, o mais geral poss&#237;vel, dos seguintes lambdas
+
+            *i.  \x -&gt; [ x &gt; 9 ]
+
+                @
+                (\x -&gt; [ x &gt; 9 ]) :: (`Num` a, `Ord` a) =&gt; a -&gt; [`Bool`]
+                @
+
+            *ii. \k -&gt; [k &lt;&gt; `mempty`]
+
+                @
+                (\k -&gt; [k &lt;&gt; `mempty`]) :: `Monoid` t =&gt; t -&gt; [t]
+                @
+
+        *(c) (1) Fa&#231;a fun&#231;&#245;es (dando o tipo da fun&#231;&#227;o da forma mais gen&#233;rica poss&#237;vel) para o que se pede.
+
+            *i. Uma fun&#231;&#227;o que receba um Maybe Int e retorna um Maybe Bool indicando se este &#233; positivo. (Usar pattern matching no Maybe).
+
+                @
+                maybeIntBool :: `Maybe` Int -&gt; `Maybe` `Bool`
+                maybeIntBool `Nothing`  = `Nothing`
+                maybeIntBool (Just 0) = `Nothing`
+                maybeIntBool x = `Just` ( x &lt; 0 )
+                @
+
+            *ii. Uma fun&#231;&#227;o que receba uma lista e retorne o reverso do reverso dela mesmo.
+
+                @
+                funR :: [a] -&gt; [a]
+                funR xs = ( `reverse` . `reverse` ) xs
+                @
+
+            *iii. Uma fun&#231;&#227;o que receba um numero x e retorne a express&#227;o Just(x == 0).
+     
+                @
+                funX ::(`Num` a) =&gt; a -&gt; `Maybe` `Bool`
+                funX x = `Just` (x == 0)
+                @
+
+            *iv. Uma fun&#231;&#227;o que verifique se a multiplica&#231;&#227;o de um vetor de (Product Ints), recebido via par&#226;metro, &#233; par (Product &#233; um funtor).
+
+                @
+                prodPar :: (`Product` a)=&gt; [a] -&gt; `Bool`
+                prodPar ps = ( ( `mconcat` ps )``mod`` 2 ) == 0
+                @
+
+-}</span><span>
+</span><a name="line-95"></a><a name="exerc%EDcio1"><a href="ADSN.html#exerc%EDcio1"><span class="hs-identifier">exerc&#237;cio1</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio1&quot;</span><span>
+</span><a name="line-96"></a><span>
+</span><a name="line-97"></a><span class="hs-comment">{- |  
+    *2. (valor 2.5 pontos) Considere a fun&#231;&#227;o
+
+        @
+        module Aula1 where
+
+        data Tripla a = Tripla a Int a deriving Show
+
+        instance `Functor` Tripla where
+         `fmap` f (Tripla x y z) = Tripla (f x ) (`id` y) ((`id` . f . `id`) z)
+        @
+
+        e responda
+
+        *(a) (0.25) Qualovalordaexpress&#227;o `fmap` (\x -&gt; (`head` . `id` . `tail` . `reverse`) x) $ Tripla \&quot;PHP\&quot; 2 \&quot;HASKELL\&quot;?
+        
+            @
+            `fmap` (\x -&gt; (`head` . `id` . `tail` . `reverse`) x) $ Tripla \&quot;PHP\&quot; 2 \&quot;HASKELL\&quot;
+            Tripla 'H' 2 'L'
+            @
+
+        *(b) (0.25) Qual o valor da express&#227;o :t Tripla 2.2 0 3.3 ?
+        
+            @
+            Tripla 2.2 0 3.3 :: `Fractional` a =&gt; Tripla a
+            @
+
+        *(c) (0.25) Qual o valor de :kind Tripla ?
+
+            @
+            :k (Tripla )
+            (Tripla ) :: * -&gt; *
+            @
+        
+        *(d) (0.5) Crie uma express&#227;o lambda para extrai o primeiro elemento dos campos de um Tripla String;
+
+            @
+            ( \(Tripla x _ _ ) -&gt; x )
+            @
+
+        *(e) (0.25) Qual o valor de :t Tripla `Nothing` 4 `Nothing`?;
+        
+            @
+            Tripla `Nothing` 4 `Nothing` :: Tripla (`Maybe` a)
+            @
+
+        *(f) (0.5) Duas Triplas s&#227;o iguais se o terceiro campo o for. Fa&#231;a essa inst&#226;ncia de Eq para Tripla;
+        
+            @
+            instance (`Eq` a) =&gt; `Eq` (Tripla a) where
+                (==) (Tripla _ _ x) (Tripla _ _ y) = x == y
+
+            @
+
+        *(g) (0.5) Do jeito que est&#225;, &#233; poss&#237;vel calcular a express&#227;o Tripla 1 2 3 &lt; Tripla 2 5 9? Justifique.
+
+            &gt;N&#227;o, pois n&#227;o existe descri&#231;&#227;o de inst&#226;ncia de Ord para Triplas
+-}</span><span>
+</span><a name="line-155"></a><a name="exerc%EDcio2"><a href="ADSN.html#exerc%EDcio2"><span class="hs-identifier">exerc&#237;cio2</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio2&quot;</span><span>
+</span><a name="line-156"></a><span>
+</span><a name="line-157"></a><span>
+</span><a name="line-158"></a><span class="hs-comment">{- |  
+    *3. (valor 2.5 pontos) Crie o tipo Sozinho com um value constructor Sozinho. Crie uma inst&#226;ncia de Monoid para este tipo.
+
+    @
+    import `Data`.`Monoid`
+
+    module Sozinho where 
+    
+    data Sozinho = Sozinho
+
+    instance `Monoid` Sozinho where
+        `mempty` = Sozinho
+        `mappend` _ _ = Sozinho
+    @
+-}</span><span>
+</span><a name="line-173"></a><a name="exerc%EDcio3"><a href="ADSN.html#exerc%EDcio3"><span class="hs-identifier">exerc&#237;cio3</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio3&quot;</span><span>
+</span><a name="line-174"></a><span>
+</span><a name="line-175"></a><span class="hs-comment">{- |  
+    *4. (valor 2.5 pontos) Baseando-se na m&#250;sica do Stealers Wheels (1972) &#8221;Clowns to the left of me Jokers to the right, here i am, stuck in the Middle with you&#8221;
+
+        *(a) Crie o tipo Position com os value constructors Clowns, Jokers e Middle
+
+            @
+            data Position = Clowns | Jokers | Middle deriving Show
+            @
+
+
+        *(b) Crie o typeclass (Music a) que implemente a fun&#231;&#227;o whereIn :: a &#8722;&gt; P osition
+
+            @
+            class Music a where
+                whereIn :: a -&gt; Position
+            @
+
+
+        *(c) Crie uma inst&#226;ncia de Music para Int que faz com que os positivos sejam Clowns, os negativos Jokers e o zero Middle
+
+            @
+            instance Music Int where
+                whereIn x
+                        | x &gt; 0 = Clowns
+                        | x &lt; 0 = Jokers
+                        | otherwise = Middle
+            @
+
+
+        *(d) Generalize o item acima para qualquer Monoid (lembre-se de colocar as restri&#231;&#245;es aqui).
+
+            @
+            instance (`Ord` a, `Monoid` a)=&gt; Music a where
+                whereIn x
+                        | x &gt; `mempty` = Clowns
+                        | x &lt; `mempty` = Jokers
+                        | otherwise = `mempty`
+            @
+
+
+-}</span><span>
+</span><a name="line-216"></a><a name="exerc%EDcio4"><a href="ADSN.html#exerc%EDcio4"><span class="hs-identifier">exerc&#237;cio4</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio4&quot;</span><span>
+</span><a name="line-217"></a></pre></body></html>

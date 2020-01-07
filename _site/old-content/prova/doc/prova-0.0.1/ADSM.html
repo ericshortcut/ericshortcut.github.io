@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>ADSM</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_ADSM.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="src/ADSM.html">Source</a></li><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">prova-0.0.1: Corre&#231;&#227;o das provas da FATEC BS</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>(c) Alexandre Garcia, 2016
+                  Eric Andrade, 2016</td></tr><tr><th>License</th><td>GPL-3</td></tr><tr><th>Maintainer</th><td>no@reply.c-m</td></tr><tr><th>Stability</th><td>experimental</td></tr><tr><th>Safe Haskell</th><td>Safe</td></tr><tr><th>Language</th><td>Haskell98</td></tr></table><p class="caption">ADSM</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Prova de ADS Manh&#227;
+Coment&#225;rios <code>#Corre&#231;&#227;o de Prova </code>.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:exerc-237-cio1">exerc&#237;cio1</a> :: <a href="../base-4.9.0.0/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:exerc-237-cio2">exerc&#237;cio2</a> :: <a href="../base-4.9.0.0/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:exerc-237-cio3">exerc&#237;cio3</a> :: <a href="../base-4.9.0.0/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:exerc-237-cio4">exerc&#237;cio4</a> :: <a href="../base-4.9.0.0/System-IO.html#t:IO">IO</a> ()</li></ul></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><a id="v:exerc-237-cio1" class="def">exerc&#237;cio1</a> :: <a href="../base-4.9.0.0/System-IO.html#t:IO">IO</a> () <a href="src/ADSM.html#exerc%EDcio1" class="link">Source</a> <a href="#v:exerc-237-cio1" class="selflink">#</a></p><div class="doc"><ul><li>Corre&#231;&#227;o da prova de ADS Manh&#227;</li><li>1. (valor 2.5 pontos)</li><li><p>(a) (1.0) Monte uma express&#227;o lambda para o que se pede</p><ul><li><p>i. Para verificar se um valor &#233; diferente de seu mempty</p><pre>(x -&gt; x /= <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mempty">mempty</a></code> )
+</pre></li><li><p>ii. Para retornar o reverso de uma lista xs concatenada com a pr&#243;pria xs.</p><pre>(xs -&gt; (<code><a href="../base-4.9.0.0/GHC-OldList.html#v:reverse">reverse</a></code> xs) ++ xs )
+</pre></li><li><p>iii. Para verificar se o tamanho de uma lista &#233; &#237;mpar e maior que 7.</p><pre>(xs -&gt;  (<code><a href="../base-4.9.0.0/Prelude.html#v:mod">mod</a></code> (<code><a href="../base-4.9.0.0/Data-Foldable.html#v:length">length</a></code> xs) 2) == 1 &amp;&amp; (<code><a href="../base-4.9.0.0/Data-Foldable.html#v:length">length</a></code> xs) &gt; 7)
+</pre></li><li><p>iv. Para verficiar o maior entre os n&#250;meros x e 0.</p><pre>(x -&gt; <code><a href="../base-4.9.0.0/Data-Ord.html#v:min">min</a></code> x 0)
+</pre></li></ul></li><li><p>(b) (0.5) D&#234; o tipo, o mais geral poss&#237;vel, dos seguintes lambdas</p><ul><li><p>i.  :t (x -&gt; <code><a href="../base-4.9.0.0/Data-Maybe.html#v:Just">Just</a></code> $ x &lt;&gt; <a href="Ola.html">Ola</a>)</p><pre>(x -&gt; <code><a href="../base-4.9.0.0/Data-Maybe.html#v:Just">Just</a></code> $ x &lt;&gt; <a href="Ola.html">Ola</a>) :: [<code><a href="../base-4.9.0.0/Data-Char.html#t:Char">Char</a></code>] -&gt; <code><a href="../base-4.9.0.0/Data-Maybe.html#t:Maybe">Maybe</a></code> [<code><a href="../base-4.9.0.0/Data-Char.html#t:Char">Char</a></code>]
+</pre></li><li><p>ii. :t k -&gt; <code><a href="../base-4.9.0.0/Data-Maybe.html#v:Just">Just</a></code> $ k == <code><a href="../base-4.9.0.0/Data-Bool.html#v:False">False</a></code></p><pre>(k -&gt; <code><a href="../base-4.9.0.0/Data-Maybe.html#v:Just">Just</a></code> $ k == <code><a href="../base-4.9.0.0/Data-Bool.html#v:False">False</a></code>) :: <code><a href="../base-4.9.0.0/Data-Bool.html#t:Bool">Bool</a></code> -&gt; <code><a href="../base-4.9.0.0/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="../base-4.9.0.0/Data-Bool.html#t:Bool">Bool</a></code>
+</pre></li></ul></li><li><p>(c) (1) Fa&#231;a fun&#231;&#245;es (dando o tipo da fun&#231;&#227;o e da forma mais gen&#233;rica poss&#237;vel) para o que se pede</p><ul><li><p>i. Uma fun&#231;&#227;o que verifique se a soma de um vetor de Ints, recebido via par&#226;metro, &#233; par.</p><pre>funSomaPar :: [<code><a href="../base-4.9.0.0/Data-Int.html#t:Int">Int</a></code>] -&gt; <code><a href="../base-4.9.0.0/Data-Bool.html#t:Bool">Bool</a></code>
+funSomaPar xs = ((<code><a href="../base-4.9.0.0/Data-Foldable.html#v:foldl">foldl</a></code> (+) 0 xs) <code><a href="../base-4.9.0.0/Prelude.html#v:mod">mod</a></code> 2) == 0
+</pre></li><li><p>ii. Uma fun&#231;&#227;o que receba um Maybe Int e retorna um Maybe Bool indicando se este &#233; negativo. Usar pattern matching no Maybe).</p><pre>funMaybe :: <code><a href="../base-4.9.0.0/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="../base-4.9.0.0/Data-Int.html#t:Int">Int</a></code> -&gt; <code><a href="../base-4.9.0.0/Data-Maybe.html#t:Maybe">Maybe</a></code> <code><a href="../base-4.9.0.0/Data-Bool.html#t:Bool">Bool</a></code>
+funMaybe <code><a href="../base-4.9.0.0/Data-Maybe.html#v:Nothing">Nothing</a></code> = <code><a href="../base-4.9.0.0/Data-Maybe.html#v:Nothing">Nothing</a></code>
+funMaybe (<code><a href="../base-4.9.0.0/Data-Maybe.html#v:Just">Just</a></code> x) = <code><a href="../base-4.9.0.0/Data-Maybe.html#v:Just">Just</a></code> (x &gt;= 0)
+</pre></li><li><p>iii. Uma fun&#231;&#227;o que receba uma lista e filtre os memptys.</p><pre>filtrarMemptys :: (Eq a, Monoid a) =&gt; [a] -&gt; [a]
+filtrarMemptys xs = <code><a href="../base-4.9.0.0/GHC-OldList.html#v:filter">filter</a></code> ( /= <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mempty">mempty</a></code>) xs
+</pre></li><li><p>iv. Uma fun&#231;&#227;o que receba um vetor de Int (de tamanho qualquer) e retorne a soma dos quadrados dos elementos. (Exemplo: se a entrada for [0,2,1] o retorno deve ser 5).</p><pre>retornaQuad :: [<code><a href="../base-4.9.0.0/Data-Int.html#t:Int">Int</a></code>] -&gt; <code><a href="../base-4.9.0.0/Data-Int.html#t:Int">Int</a></code>
+retornaQuad [] = 0
+retornaQuad (x:xs) = (x * x) + retornaQuad xs 
+</pre></li></ul></li></ul></div></div><div class="top"><p class="src"><a id="v:exerc-237-cio2" class="def">exerc&#237;cio2</a> :: <a href="../base-4.9.0.0/System-IO.html#t:IO">IO</a> () <a href="src/ADSM.html#exerc%EDcio2" class="link">Source</a> <a href="#v:exerc-237-cio2" class="selflink">#</a></p><div class="doc"><ul><li><p>2. (valor 2.5 pontos) Considere a fun&#231;&#227;o</p><pre>module Aula1 where
+
+data Tripla a = Tripla a Int a deriving Show
+
+instance <code><a href="../base-4.9.0.0/Data-Functor.html#t:Functor">Functor</a></code> Tripla where
+ <code><a href="../base-4.9.0.0/Data-Functor.html#v:fmap">fmap</a></code> f (Tripla x y z) = Tripla (f x ) (<code><a href="../base-4.9.0.0/Data-Function.html#v:id">id</a></code> y) ((<code><a href="../base-4.9.0.0/Data-Function.html#v:id">id</a></code> . f . <code><a href="../base-4.9.0.0/Data-Function.html#v:id">id</a></code>) z)
+</pre></li></ul><p>e responda</p><ul><li>(a) (0.25)Qual o valor da express&#227;o fmap (x -&gt; (<code><a href="../base-4.9.0.0/GHC-OldList.html#v:tail">tail</a></code> . <code><a href="../base-4.9.0.0/GHC-OldList.html#v:tail">tail</a></code> . <code><a href="../base-4.9.0.0/GHC-OldList.html#v:reverse">reverse</a></code>) x)$ Tripla <a href="PHP.html">PHP</a> 2 <a href="HASKELL.html">HASKELL</a>?</li></ul><pre>       Tripla &quot;P&quot; 2 &quot;EKSAH&quot;
+       </pre><ul><li>(b) (0.25) Qual o valor da express&#227;o :t Tripla &quot;.&quot; 0 <a href="OLA.html">OLA</a>?</li></ul><pre>       Tripla &quot;.&quot; 0 &quot;OLA&quot; :: Tripla [<code><a href="../base-4.9.0.0/Data-Char.html#t:Char">Char</a></code>]
+       </pre><ul><li><p>(c) (0.25) Qual o valor de :kind (Tripla <code><a href="../base-4.9.0.0/Data-Int.html#t:Int">Int</a></code>)?</p><pre>:k (Tripla <code><a href="../base-4.9.0.0/Data-Int.html#t:Int">Int</a></code>)
+(Tripla <code><a href="../base-4.9.0.0/Data-Int.html#t:Int">Int</a></code>) :: *
+</pre></li><li><p>(d) (0.5) Crie uma express&#227;o para dobra todos os campos de um Tripla Int;</p><pre>((Tripla x y z)-&gt; Tripla (x * 2) (y * 2) (z * 2) )
+</pre></li><li>(e) (0.25) Qual o valor de :t Tripla <code><a href="../base-4.9.0.0/Data-Bool.html#v:False">False</a></code> 4 <code><a href="../base-4.9.0.0/Data-Bool.html#v:True">True</a></code>?;</li></ul><pre>       :t Tripla <code><a href="../base-4.9.0.0/Data-Bool.html#v:False">False</a></code> 4 <code><a href="../base-4.9.0.0/Data-Bool.html#v:True">True</a></code>
+       Tripla <code><a href="../base-4.9.0.0/Data-Bool.html#v:False">False</a></code> 4 <code><a href="../base-4.9.0.0/Data-Bool.html#v:True">True</a></code> :: Tripla <code><a href="../base-4.9.0.0/Data-Bool.html#t:Bool">Bool</a></code>
+       </pre><ul><li>(f) (0.5) Fa&#231;a uma fun&#231;&#227;o chamada homs que receba Tripla a e retorne (a,Int,a) colocando cada campo na
+    respectiva coordenada. Exemplo, homs (Tripla &#8217;w&#8217; 7 &#8217;p&#8217;) retorna o valor (&#8217;w&#8217;,7,&#8217;p&#8217;);</li></ul><pre>       homs :: (Tripla a) -&gt; ( a , Int , a )
+       homs (Tripla x y z) = (x,y,z)
+       </pre><ul><li><p>(g) (0.5) Do jeito que est&#225;,  &#233; poss&#237;vel calcular a express&#227;o Tripla 1 2 3 &lt;&gt; Tripla 1 2 3? Justifique.</p><pre>N&#227;o &#233; poss&#237;vel, n&#227;o existe inst&#226;ncia de monoid. Ent&#227;o o haskell n&#227;o sabe como combinar dois tipos &quot;Tripla&quot;</pre></li></ul></div></div><div class="top"><p class="src"><a id="v:exerc-237-cio3" class="def">exerc&#237;cio3</a> :: <a href="../base-4.9.0.0/System-IO.html#t:IO">IO</a> () <a href="src/ADSM.html#exerc%EDcio3" class="link">Source</a> <a href="#v:exerc-237-cio3" class="selflink">#</a></p><div class="doc"><ul><li>3. (valor 2.5 pontos) Implemente o tipo de nome GF3 contendo os value constructors U, A, B e C. Implemente uma inst&#226;ncia de Monoid seguindo a tabela abaixo.</li></ul><pre>&lt;&gt; U A B
+U  U A B 
+A  A B U
+B  B U A</pre><p><img src="http://www.azquotes.com/picture-quotes/quote-unfortunately-what-is-little-recognized-is-that-the-most-worthwhile-scientific-books-evariste-galois-58-65-91.jpg" title="galois" /></p><pre>   import Data.Monoid
+
+   module GF3 where 
+
+   data GF3 = U | A | B  deriving Show
+
+   instance <code><a href="../base-4.9.0.0/Data-Monoid.html#t:Monoid">Monoid</a></code> GF3 where
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mempty">mempty</a></code> = U 
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> U U = U
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> U A = A
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> U B = B
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> A U = A
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> A A = B
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> A B = U
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> B U = B
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> B A = U
+     <code><a href="../base-4.9.0.0/Data-Monoid.html#v:mappend">mappend</a></code> B B = A
+   </pre></div></div><div class="top"><p class="src"><a id="v:exerc-237-cio4" class="def">exerc&#237;cio4</a> :: <a href="../base-4.9.0.0/System-IO.html#t:IO">IO</a> () <a href="src/ADSM.html#exerc%EDcio4" class="link">Source</a> <a href="#v:exerc-237-cio4" class="selflink">#</a></p><div class="doc"><ul><li>4. (valor 2.5 pontos)</li><li><p>(a) Crie o tipo EstadoLampada com os value constructors Aceso e Apagado. (b) Implemente a fun&#231;&#227;o click que troca o estado da l&#226;mpada.</p><pre>   data EstadoLampada = Aceso | Apagado deriving (Show,Eq)
+
+   click :: EstadoLampada -&gt; EstadoLampada'
+   click Aceso = Apagado
+   click Apagado = Aceso
+   </pre><ul><li><p>(c) Fa&#231;a uma fun&#231;&#227;o que filtre as l&#226;mpadas apagadas de uma lista.</p><pre>filtraApagadas :: [EstadoLampada] -&gt; [EstadoLampada]
+filtraApagadas xs = <code><a href="../base-4.9.0.0/GHC-OldList.html#v:filter">filter</a></code> (Aceso == x) xs
+</pre></li><li><p>(d) Faca uma fun&#231;&#227;o que troque o estado de todas as l&#226;mpadas de uma lista</p><pre>funTroca :: [EstadoLampada] -&gt; [EstadoLampada]
+funTroca xs = <code><a href="../base-4.9.0.0/GHC-OldList.html#v:map">map</a></code> click xs
+</pre></li><li><p>(e) Fa&#231;a uma inst&#226;ncia de Show para este tipo escrevendo uma mensagem diferente para cada estado</p><pre>instance Show EstadoLampada where
+    show Aceso   = &quot;Plim&quot;
+    show Apagado = &quot;Good Night&quot;
+</pre></li></ul></li></ul></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.17.2</p></div></body></html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{-|
+Module      : SI (Sistemas para internet)
+Description : Prova Sistemas para internet
+Copyright   : (c) Alexandre Garcia, 2016
+                  Eric Andrade, 2016
+License     : GPL-3
+Maintainer  : no@reply.c-m
+Stability   : experimental
+
+
+Prova de Sistemas para Internet
+Coment&#225;rios @#Corre&#231;&#227;o de Prova@.
+-}</span><span>
+</span><a name="line-14"></a><span>
+</span><a name="line-15"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">SI</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-16"></a><span>
+</span><a name="line-17"></a><span class="hs-comment">{-|
+* Corre&#231;&#227;o da prova de Sistemas para internet
+
+
+    * 1. (valor 2.5 pontos)
+        *(a) (1.0) Monte uma express&#227;o lambda para o que se pede
+
+            * i. Lambda para verificar se uma lista tem tamanho 9.
+
+                @
+                (\xs -&gt; `length` xs == 9 )
+                        ou
+                (\xs -&gt; (`length` xs) == 9 )
+                @
+
+            * ii. Lambda para filtrar palavras de tamanho maior que 30 de um array de Strings xs.
+
+                @
+                (\xss -&gt; `filter` (\xs -&gt; `length` xs &lt;= 30 ) xss)
+                @
+                
+            * iii. Lambda para receber uma String s e retorn&#225; -la em ordem reversa sendo do tipo `Maybe` String.
+
+                @
+                (\xs -&gt;  `Just` (`reverse` xs))
+                @
+            
+            * iv. Lambda para checar se um n&#250;mero positivo.
+
+                @
+                (\x -&gt; x &gt;= 0 )
+                @
+            
+
+        *(b) (0.5) D&#234; o tipo das seguintes fun&#231;&#245;es
+            * i. \x -&gt; [ &#8221;Ola&#8221; ++ x ]
+
+                @
+                ( \x -&gt; [ &quot;Ola&quot; ++ x ]) :: [`Char`] -&gt; [[`Char` ]]
+                @
+
+            * ii. \t -&gt; `Just` $ t == &quot;True&quot;
+
+                @
+                (\t -&gt; `Just` $ t == &quot;True&quot;) :: [[`Char`]] -&gt; `Maybe` `Bool`
+                @
+
+        *(c) (1) Fa&#231;a fun&#231;&#245;es (dando o tipo da fun&#231;&#227;o e da forma mais gen&#233;rica poss&#237;vel) para o que se pede
+            * i. Uma fun&#231;&#227;o que receba uma lista e a devolva sem os dois primeiros elementos (Dica: pattern matching) .
+
+                @
+                semDois :: [a] -&gt; [a]
+                semDois [] = []
+                semDois (x:xs) = x : xs
+                semDois (_:_:xs) = xs
+                       ou
+                semDois :: [a] -&gt; [a]
+                semDois xs = `tail` ( `tail` xs )
+                @
+            * ii. Uma fun&#231;&#227;o que receba dois `Maybe` Int e retorne o menor deles (Dica: pattern matching).
+
+                @
+                doisMaybeMenor :: `Maybe` Int -&gt; `Maybe` `Int` -&gt; `Maybe` `Int`
+                doisMaybeMenor (`Just` x) (`Just` y)
+                                            | x &gt; y = `Just` y
+                                            | otherwise = `Just` x
+                doisMaybeMenor _ _ = `Nothing`
+                            ou
+                doisMaybeMenor :: `Maybe` `Int` -&gt; `Maybe` `Int` -&gt; `Maybe` `Int`
+                doisMaybeMenor (`Just` x) (`Just` y) = `Just` (min x y)
+                doisMaybeMenor _ _ = `Nothing`
+                @
+
+            * iii. Uma fun&#231;&#227;o que receba um valor qualquer e retorne `Nothing`.
+
+                @
+                    retornaNothing :: a -&gt; `Maybe` a
+                    retornaNothing _ = `Nothing`
+                @
+            * iv. Uma fun&#231;&#227;o que receba um valor e verifique se este &#233; maior que seu mempty.
+
+                @
+                maiorQueMempty :: (`Ord` a )=&gt; a -&gt; `Bool`)
+                maiorQueMempty x = ( x ) /= `mempty` )
+
+                @
+
+-}</span><span>
+</span><a name="line-105"></a><a name="exerc%EDcio1"><a href="SI.html#exerc%EDcio1"><span class="hs-identifier">exerc&#237;cio1</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio1&quot;</span><span>
+</span><a name="line-106"></a><span class="hs-comment">{- |  
+    *2. (valor 2.5 pontos) Considere a fun&#231;&#227;o
+
+        @
+        module Aula1 where
+
+        data Tupla a = Tupla a a deriving Show
+
+        instance `Functor` Tupla where
+         `fmap` f (Tupla x y ) = Tupla (`id`.f $ y) (f.`id` $ x)
+        @
+
+        e responda
+
+        *(a) (0.25) Qual o valor da express&#227;o fmap (\x-&gt;x&lt;3)$ Tupla 4 2?
+
+            @
+            Tupla `True` `False`
+            @
+
+        *(b) (0.25) Qual o valor da express&#227;o :t Tupla \&quot;W\&quot; \&quot;M\&quot;?
+
+            @
+            Tupla \&quot;W\&quot; \&quot;M\&quot; :: Tupla [`Char`]
+            @
+
+        *(c) (0.25) Qual o valor de fmap id $ Tupla 4 7?
+
+            @
+            `fmap` `id` $ Tupla 4 7
+            @
+
+        *(d) (0.5) Fa&#231;a uma inst&#226;ncia de Eq para Tupla, onde duas Tuplas s&#227;o iguais se o primeiro elemento de uma for igual ao segundo elemento da outra;
+
+            @
+            instance (`Eq` a) =&gt; `Eq` (Tupla a ) where
+                (`==`) (Tupla a _) (Tupla b _) = a == b
+            @
+
+        
+        *(e) (0.25) Qual o valor de :t Tupla mempty mempty?;
+
+            @
+            Tupla `mempty` `mempty` :: `Monoid` a =&gt; `Tupla` a
+            @
+
+        *(f) (0.5) Fa&#231;a uma inst&#226;ncia de Show para tupla que dado (Tupla x y) mostre na tela &#8220;fst: x =&gt; snd: y&#8221;;
+
+            @
+            instance (`Show` a) =&gt; `Show` (Tupla a ) where
+                `show` (Tupla x y) = &quot;fst: &quot; ++ show x ++&quot; =&gt; snd: &quot; ++ show y
+            @
+
+        *(g) (0.5)Do jeito que est&#225; oc&#243;digo e sem qualquer altera&#231;&#227;o,&#233; poss&#237;vel calcular a express&#227;o Tupla 1 2 `&lt;&gt;` Tupla 2 3? Justifique.
+
+            @
+            &gt;N&#227;o &#233; poss&#237;vel, n&#227;o existe inst&#226;ncia de monoid. Ent&#227;o o haskell n&#227;o sabe como combinar dois tipos &quot;Tupla&quot;
+            @
+
+-}</span><span>
+</span><a name="line-166"></a><a name="exerc%EDcio2"><a href="SI.html#exerc%EDcio2"><span class="hs-identifier">exerc&#237;cio2</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio1&quot;</span><span>
+</span><a name="line-167"></a><span>
+</span><a name="line-168"></a><span class="hs-comment">{- |  
+    *3. (valor 2.5 pontos)
+        *(a) (0.25) Crie um tipo que represente os quatros naipes de um baralho (Ouros, espadas, copas e paus).
+
+            @
+            data Naipe = Ouros | Espadas | Copas | Paus deriving (Show)
+            @
+
+        *(b) (0.25) Crie o tipo Valor que tenha 13 value constructors representando os 9 n&#250;meros do baralho (2 a 9) e as figuras A, J, Q, K.
+
+            @
+            data Valor = A | Um | Dois | Tres | Quatro | Cinco | Seis | Sete | Oito | Nove | J | Q | K deriving Show
+            @
+
+        *(c) (0.5) Crie o tipo Carta que possua um Valor e um Naipe como campos.
+
+            @
+            data Carta = Carta Valor Naipe deriving Show
+            @
+
+        *(d) (1.0) Fa&#231;a a fun&#231;ao veremelhoFigura que filtre as figuras de naipes vermelhos (Ouros e Copas).
+
+            @
+            veremelhoFigura :: [Carta] -&gt; [Carta]
+            veremelhoFigura [] = []
+            veremelhoFigura ((Carta v Ouros):xs) = (Carta v Ouros) : veremelhoFigura xs
+            veremelhoFigura ((Carta v Copas):xs) = (Carta v Copas) : veremelhoFigura xs
+            veremelhoFigura (_:xs) = veremelhoFigura xs
+            @
+
+        *(e) (0.5) Fa&#231;a a fun&#231;&#227;o isBlackJack que recebe duas cartas e retorna se este par forma ou n&#227;o um blackjack. Um black &#233; sempre formado por um A(&#225; s) seguido de J, Q ou K.
+
+            @
+            isBlackJack :: `Carta` -&gt; `Carta` -&gt; `Bool`
+            isBlackJack (Carta v A) (Carta v J) = True
+            isBlackJack (Carta v J) (Carta v A) = True
+            isBlackJack (Carta v A) (Carta v Q)  = True
+            isBlackJack (Carta v Q) (Carta v A)  = True
+            isBlackJack (Carta v A) (Carta v K)  = True
+            isBlackJack (Carta v K) (Carta v A)  = True
+            isBlackJack _ _ = False
+            @
+
+-}</span><span>
+</span><a name="line-212"></a><a name="exerc%EDcio3"><a href="SI.html#exerc%EDcio3"><span class="hs-identifier">exerc&#237;cio3</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio1&quot;</span></pre></body></html>

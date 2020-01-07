@@ -1,0 +1,206 @@
+
+sidebar:
+    about: True # set to False or comment line if you want to remove the "how to use?" in the sidebar
+    education: True # set to False if you want education in main section instead of in sidebar
+
+    # Profile information
+    name: Eric Andrade
+    tagline: Full Stack Developer
+    avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
+
+    # Sidebar links
+    email: ericshortcut@gmail.com
+    website: blog.ericshortcut.tk
+    linkedin: ericshortcut
+    github: ericshortcut
+    twitter: '@ericshortcut'
+    
+    languages:
+      - idiom: Portuguese
+        level: Native
+
+      - idiom: English
+        level: Advanced | Professional
+
+      - idiom: Spanish
+        level: Independent
+
+      - idiom: Mandarin
+        level: Elementary
+
+      - idiom: French
+        level: Elementary
+
+    interests:
+      - item: Retro Video Games (Super Nintendo, Atari, etc)
+        link:
+
+      - item: 6507 assembly
+        link:
+
+      - item: Instruments Electrical Guitar
+        link:
+
+      - item: Languages
+        link:
+
+career-profile:
+    title: Full Stack Senior Software Developer
+    summary: |
+      I've been working on IT since 2009 and I love it!
+
+education:
+    - degree: Distributed Software's Architect
+      university: PUC Minas
+      time: 2019 - present
+      details: |
+        - Architecture Principles
+        - Front-end Architecture (RWD, CSS Patterns, PWA, Webpack)
+        - Microservices Architecture (Java EE, NodeJS, .NET, Web Services APIs and Serverless )
+        - Analysis, Project and Evaluation of Architectures
+        - .NET Architecture
+        - IOT Architecture
+        - DevOps CI/CD Architecture
+
+    - degree: Internet Systems
+      university: FATEC Rubens Lara
+      time: 06/2012 - Closed
+      details: |
+        - Internet Fundamentus (Protocols)
+        - Digital Design
+        - Networking
+        - Database
+        - Internet Security
+        - SOA
+        - Special Topics: Haskell
+
+experiences:
+    - role: Full Stack Senior Software Developer
+      time: 07/2018 - Present
+      company: Stefanini - Barueri, São Paulo
+      details: |
+        Stefanini is a private Brazilian multinational, service and software provider, for data processing and consulting, with more than 25,000 employees in 40 countries across the Americas, Europe, Australia, and Asia.
+        - Worked as a hired consultant developer at Stefanini for Cielo to migrate Salesforce (Cielo is the largest Brazilian credit and debit card operator):
+          - Coordination of the Development team during the migration and development of a CRM to in-house solution developed by same team.
+          - Migrated 10 years of Salesforce raw data (CSV) to Oracle 12c using Java 1.8 and Spring Batch.
+          - Developed both front-end and back-end to auto-generate forms in Typescript (Angular 2.x) and generic searching for back-end, saving US$1.5 in Salesforce licensing yearly.
+          - Integrated other 3 systems that feed and consume Salesforce to keep correct integration among other in-house solutions, it was all done within 7 months of work.
+          - Deployed the systems on-premises server.
+        - Worked as a hired consultant developer at Stefanini for Cateno (Cateno is a joint venture created by Banco do Brasil and Cielo. One of their products is prepaid custom card plastic branding and issuing).
+          - Developed auto-scaling multi-tenant system (Saas) for online prepaid card, using AWS technologies Lambda with NodeJS (Javascript), RDS, Cloudfront, Cloudfront and CD/CI Pipelines provided by Amazon.
+          - Applied multi-tenant access level to front-end layer data according to the user's level and company branch using TypeScript (Angular 2.x) and AWS S3.
+
+    - role: Full Stack (Contractor)
+      time: 03/2018 - 08/2018
+      company: CodeIt Solutions - Barueri, São Paulo
+      details: |
+        Code it Solutions is a software consulting company started from join of Control Consultoria (insurance Consulting business company) and Grupo Objective (Software Development company).
+        - Worked as a consultant contractor developer for CodeIT Solutions at Qualicorp (Qualicorp is one of the leading, full-service healthcare benefits administrators and health management services providers in Brazil, serving more than 5.2 million beneficiaries):
+          - Coordinated other developers to build efficient delivery according company's standard, avoiding bugs on production.
+          - Developed an auto-scale application for dynamic form and workflow process using Docker, Java 1.8 (Spring boot, Spring Cloud Netflix OSS), Typescript (Angular 2,x), RabbitMq and PLSQL (Oracle 12c)
+          - Implemented database versioning with Liquibase, relating environment migrations, database changes and seeding.
+          - Created Docker environment for front-end development and back-end, using Bitbucket as process pipeline for build and test.
+projects:
+    title: Personal Projects & contributions
+    intro: >
+      Some personal projects and contributions I made to community
+    assignments:
+      - title: SVO - Subject Verb Object (Business Rule Engine)
+        link: "#"
+        tagline: "It's a Business Rule Engine for nodejs projects."
+
+# publications:
+#     title: Publications
+#     intro: |
+#       You can list your publications in this section. Lorem ipsum dolor sit
+#       amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
+#       bibendum fringilla a eu lectus.
+#     papers:
+#       - title: The Art of Computer Programming
+#         link: "#"
+#         authors: Donald E. Knuth
+#         conference: Addison-Wesley, 1968
+
+#       - title: "Genetic Programming III: Darwinian Invention &amp; Problem Solving"
+#         link: "#"
+#         authors: Koza, J.R., Andre, D., Bennett, F.H., Keane, M.A.
+#         conference: "Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1st edn. (1999)"
+
+#       - title: A syntax directed compiler for Algol 60
+#         link: "#"
+#         authors: Edgar T. Irons
+#         conference: "Comm. ACM 4 (1961), 51–55"
+
+skills:
+    title: Skills &amp; Proficiency
+
+    toolset:
+      - name: Spring Boot (2+ years) 
+        level: 80%
+
+      - name: Spring Cloud (2+ years) 
+        level: 80%
+
+      - name: NetflixOSS (2+ years) 
+        level: 80%
+
+      - name: PLSQL (Oracle 12c) (2+ years) 
+        level: 80%
+
+      - name: MongoDB (2+ years) 
+        level: 80%
+
+      - name: Maven (2+ years) 
+        level: 80%
+
+      - name: ES6 (2+ years) 
+        level: 80%
+
+      - name: TypeScript (2+ years) 
+        level: 80%
+
+      - name: AWS (Cloudfront, Cloudformation, DynamoDB, RDS and S3) (2+ years) 
+        level: 80%
+
+      - name: Docker (3+ years)
+        level: 80%
+
+      - name: Java (7+ years)
+        level: 90%
+
+      - name: Javascript (7+ years)
+        level: 90%
+
+      - name: NodeJS (7+ years)
+        level: 90%
+
+      - name: Express (7+ years)
+        level: 90%
+
+      - name: Angular (JS and 2) (7+ years)
+        level: 90%
+
+      - name: Gulp and Git (7+ years)
+        level: 90%
+
+      - name: MySQL (7+ years)
+        level: 90%
+
+      - name: PostgreSQL (7+ years)
+        level: 90%
+
+      - name: GNU Linux (7+ years)
+        level: 90%
+
+      - name: Haskell (4+ years / Studying)
+        level: 90%
+        
+      - name: Yesod (4+ years / Studying)
+        level: 90%
+        
+      - name: Pure Functional Data Structures and Category Theory (4+ years / Studying)
+        level: 90%
+      
+
+footer: >
+    ABC - "Always Be Coding"

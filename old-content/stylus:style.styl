@@ -1,0 +1,71 @@
+/*  ---- Variables -----  */
+
+
+badge-background-color = #000;
+badge-font-color = #fff;
+
+shadow-x = 2px;
+shadow-y = 4px;
+shadow-blur = 7px;
+
+
+/*  ---- Reset -----  */
+*
+ padding: 0;
+ margin: 0;
+ list-style: none;
+
+/*  ---- Default -----  */
+html,body
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+
+/*  ---------  */
+.container
+  display: flex;
+  height: 100%;
+
+.container-profile
+  flex-direction:column;
+  align-items: center;
+
+
+/*  ---- Profile -----  */
+
+.profile
+  text-align: center;
+
+.profile-picture
+  width: 100px;
+  margin: 1em;
+  border-radius: 50%;
+
+
+/*  ---- Skill -----  */
+
+.skill
+  padding: 1em;
+  margin-top: 1em;
+
+.skill-list-item
+  margin-top: 0.2em;
+  padding: 0.1em;
+
+.badge
+  border-radius: 0.2em;
+  padding: .2em
+  display: inline-block;
+  background: badge-background-color;
+  color: badge-font-color;
+
+.drop-shadow
+  box-shadow: shadow-x shadow-y shadow-blur #000;
+
+/*  ----GRID----  */
+
+  for percentage in (1..10)
+    step = percentage * 10
+    .l-grid-{step}
+      min-width (step + '%')
+
+/* TODO: ADD -> @media (max-width: 500px) */

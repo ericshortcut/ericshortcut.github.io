@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{-|
+Module      : ADS Manh&#227;
+Description : Prova ADS Manh&#227;
+Copyright   : (c) Alexandre Garcia, 2016
+                  Eric Andrade, 2016
+License     : GPL-3
+Maintainer  : no@reply.c-m
+Stability   : experimental
+
+
+Prova de ADS Manh&#227;
+Coment&#225;rios @#Corre&#231;&#227;o de Prova @.
+-}</span><span>
+</span><a name="line-14"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">ADSM</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span class="hs-comment">{-|
+* Corre&#231;&#227;o da prova de ADS Manh&#227;
+
+
+    * 1. (valor 2.5 pontos)
+        *(a) (1.0) Monte uma express&#227;o lambda para o que se pede
+
+            * i. Para verificar se um valor &#233; diferente de seu mempty
+
+                @
+                (\x -&gt; x /= `mempty` )
+                @
+
+            * ii. Para retornar o reverso de uma lista xs concatenada com a pr&#243;pria xs.
+
+                @
+                (\xs -&gt; (`reverse` xs) ++ xs )
+                @
+                
+            * iii. Para verificar se o tamanho de uma lista &#233; &#237;mpar e maior que 7.
+
+                @
+                (\xs -&gt;  (`mod` (`length` xs) 2) == 1 &amp;&amp; (`length` xs) &gt; 7)
+                @
+            
+            * iv. Para verficiar o maior entre os n&#250;meros x e 0.
+
+                @
+                (\x -&gt; `min` x 0)
+                @
+            
+
+        *(b) (0.5) D&#234; o tipo, o mais geral poss&#237;vel, dos seguintes lambdas
+
+            *i.  :t (\x -&gt; `Just` $ x &lt;&gt; &quot;Ola&quot;)
+
+                @
+                (\x -&gt; `Just` $ x &lt;&gt; &quot;Ola&quot;) :: [`Char`] -&gt; `Maybe` [`Char`]
+                @
+
+            *ii. :t \k -&gt; `Just` $ k == `False`
+
+                @
+                (\k -&gt; `Just` $ k == `False`) :: `Bool` -&gt; `Maybe` `Bool`
+                @
+
+        *(c) (1) Fa&#231;a fun&#231;&#245;es (dando o tipo da fun&#231;&#227;o e da forma mais gen&#233;rica poss&#237;vel) para o que se pede
+
+            *i. Uma fun&#231;&#227;o que verifique se a soma de um vetor de Ints, recebido via par&#226;metro, &#233; par.
+
+                @
+                funSomaPar :: [`Int`] -&gt; `Bool`
+                funSomaPar xs = ((`foldl` (+) 0 xs) `mod` 2) == 0
+                @
+
+            *ii. Uma fun&#231;&#227;o que receba um Maybe Int e retorna um Maybe Bool indicando se este &#233; negativo. Usar pattern matching no Maybe).
+
+                @
+                funMaybe :: `Maybe` `Int` -&gt; `Maybe` `Bool`
+                funMaybe `Nothing` = `Nothing`
+                funMaybe (`Just` x) = `Just` (x &gt;= 0)
+                @
+
+            *iii. Uma fun&#231;&#227;o que receba uma lista e filtre os memptys.
+
+                @
+                filtrarMemptys :: (Eq a, Monoid a) =&gt; [a] -&gt; [a]
+                filtrarMemptys xs = `filter` ( /= `mempty`) xs
+                @
+
+            *iv. Uma fun&#231;&#227;o que receba um vetor de Int (de tamanho qualquer) e retorne a soma dos quadrados dos elementos. (Exemplo: se a entrada for [0,2,1] o retorno deve ser 5).
+
+                @
+                retornaQuad :: [`Int`] -&gt; `Int`
+                retornaQuad [] = 0
+                retornaQuad (x:xs) = (x * x) + retornaQuad xs 
+                @
+
+-}</span><span>
+</span><a name="line-95"></a><a name="exerc%EDcio1"><a href="ADSM.html#exerc%EDcio1"><span class="hs-identifier">exerc&#237;cio1</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio1&quot;</span><span>
+</span><a name="line-96"></a><span class="hs-comment">{- |  
+    *2. (valor 2.5 pontos) Considere a fun&#231;&#227;o
+
+        @
+        module Aula1 where
+
+        data Tripla a = Tripla a Int a deriving Show
+
+        instance `Functor` Tripla where
+         `fmap` f (Tripla x y z) = Tripla (f x ) (`id` y) ((`id` . f . `id`) z)
+        @
+
+    e responda
+
+    *(a) (0.25)Qual o valor da express&#227;o fmap (\x -&gt; (`tail` . `tail` . `reverse`) x)$ Tripla &quot;PHP&quot; 2 &quot;HASKELL&quot;?
+    
+        @
+        Tripla \&quot;P\&quot; 2 \&quot;EKSAH\&quot;
+        @
+
+    *(b) (0.25) Qual o valor da express&#227;o :t Tripla &quot;.&quot; 0 &quot;OLA&quot;?
+    
+        @
+        Tripla &quot;.&quot; 0 \&quot;OLA\&quot; :: Tripla [`Char`]
+        @
+
+    *(c) (0.25) Qual o valor de :kind (Tripla `Int`)?
+
+        @
+        :k (Tripla `Int`)
+        (Tripla `Int`) :: *
+        @
+    
+    *(d) (0.5) Crie uma express&#227;o para dobra todos os campos de um Tripla Int;
+
+        @
+        (\(Tripla x y z)-&gt; Tripla (x * 2) (y * 2) (z * 2) )
+        @
+
+    *(e) (0.25) Qual o valor de :t Tripla `False` 4 `True`?;
+    
+        @
+        :t Tripla `False` 4 `True`
+        Tripla `False` 4 `True` :: Tripla `Bool`
+        @
+
+    *(f) (0.5) Fa&#231;a uma fun&#231;&#227;o chamada homs que receba Tripla a e retorne (a,Int,a) colocando cada campo na
+    respectiva coordenada. Exemplo, homs (Tripla &#8217;w&#8217; 7 &#8217;p&#8217;) retorna o valor (&#8217;w&#8217;,7,&#8217;p&#8217;);
+    
+        @
+        homs :: (Tripla a) -&gt; ( a , Int , a )
+        homs (Tripla x y z) = (x,y,z)
+        @
+
+    *(g) (0.5) Do jeito que est&#225;,  &#233; poss&#237;vel calcular a express&#227;o Tripla 1 2 3 &lt;&gt; Tripla 1 2 3? Justifique.
+
+        &gt;N&#227;o &#233; poss&#237;vel, n&#227;o existe inst&#226;ncia de monoid. Ent&#227;o o haskell n&#227;o sabe como combinar dois tipos &quot;Tripla&quot;
+-}</span><span>
+</span><a name="line-154"></a><a name="exerc%EDcio2"><a href="ADSM.html#exerc%EDcio2"><span class="hs-identifier">exerc&#237;cio2</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio1&quot;</span><span>
+</span><a name="line-155"></a><span>
+</span><a name="line-156"></a><span class="hs-comment">{- |  
+    *3. (valor 2.5 pontos) Implemente o tipo de nome GF3 contendo os value constructors U, A, B e C. Implemente uma inst&#226;ncia de Monoid seguindo a tabela abaixo.
+
+    &gt; &lt;&gt; U A B
+    &gt; U  U A B 
+    &gt; A  A B U
+    &gt; B  B U A
+
+    &lt;&lt; http://www.azquotes.com/picture-quotes/quote-unfortunately-what-is-little-recognized-is-that-the-most-worthwhile-scientific-books-evariste-galois-58-65-91.jpg galois&gt;&gt;
+
+    @
+    import Data.Monoid
+
+    module GF3 where 
+
+    data GF3 = U | A | B  deriving Show
+
+    instance `Monoid` GF3 where
+      `mempty` = U 
+      `mappend` U U = U
+      `mappend` U A = A
+      `mappend` U B = B
+      `mappend` A U = A
+      `mappend` A A = B
+      `mappend` A B = U
+      `mappend` B U = B
+      `mappend` B A = U
+      `mappend` B B = A
+    @
+-}</span><span>
+</span><a name="line-186"></a><a name="exerc%EDcio3"><a href="ADSM.html#exerc%EDcio3"><span class="hs-identifier">exerc&#237;cio3</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio1&quot;</span><span>
+</span><a name="line-187"></a><span>
+</span><a name="line-188"></a><span class="hs-comment">{- |  
+        *4. (valor 2.5 pontos)
+            *(a) Crie o tipo EstadoLampada com os value constructors Aceso e Apagado. (b) Implemente a fun&#231;&#227;o click que troca o estado da l&#226;mpada.
+
+                @
+                data EstadoLampada = Aceso | Apagado deriving (Show,Eq)
+
+                click :: EstadoLampada -&gt; EstadoLampada'
+                click Aceso = Apagado
+                click Apagado = Aceso
+                @
+
+            *(c) Fa&#231;a uma fun&#231;&#227;o que filtre as l&#226;mpadas apagadas de uma lista.
+
+                @
+                filtraApagadas :: [EstadoLampada] -&gt; [EstadoLampada]
+                filtraApagadas xs = `filter` (Aceso == x) xs
+                @
+
+            *(d) Faca uma fun&#231;&#227;o que troque o estado de todas as l&#226;mpadas de uma lista
+
+                @
+                funTroca :: [EstadoLampada] -&gt; [EstadoLampada]
+                funTroca xs = `map` click xs
+                @
+
+            *(e) Fa&#231;a uma inst&#226;ncia de Show para este tipo escrevendo uma mensagem diferente para cada estado
+
+                @
+                instance Show EstadoLampada where
+                    show Aceso   = \&quot;Plim\&quot;
+                    show Apagado = &quot;Good Night&quot;
+                @
+
+
+-}</span><span>
+</span><a name="line-224"></a><a name="exerc%EDcio4"><a href="ADSM.html#exerc%EDcio4"><span class="hs-identifier">exerc&#237;cio4</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">putStrLn</span><span> </span><span class="hs-string">&quot;exerc&#237;cio4&quot;</span></pre></body></html>

@@ -1,0 +1,338 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Space Mono', monospace;
+  background:#222;
+}
+.profile{
+  display:block;
+  text-align: center;
+  color:#fff;
+  background:#000;
+}
+.person-image{
+  width: 100%;
+  margin: 0 auto;
+  border-radius:100%;
+  border:1px solid #fff;
+}
+
+.person-name{
+  color: #FF0;
+}
+
+.hide{
+  display:none;
+}
+.push-middle{
+  margin-top:40%;
+  display:inline-block;
+}
+
+.centralize{
+  margin: 0 auto;
+}
+
+.image-container{
+  width: 100px;
+  border: 1px solid white;
+}
+/* nav*/
+
+.nav{
+  /* border: 1px solid black; */
+  background:#222;
+  box-shadow: 1px 10px 40px #000;
+}
+.nav-bar{
+  text-align: center;
+}
+.nav-item{
+  display:inline-block;
+  width:20%;
+  margin:0;
+}
+
+.nav-item a{
+  display:inline-block;
+  width:90%;
+  height:100%;
+  text-decoration:none;
+  color:#fff;
+  background:#000;
+  padding:1em;
+  border-bottom: 0.7em solid #000;
+  /* transition: 0.1s transform; */
+}
+
+.nav-item a:hover{
+  transform: scale(1.1);
+}
+
+.nav-item a:hover,
+.nav-item.active a{
+  border-bottom: 0.7em solid #FF0;
+}
+
+/* jumbo */
+.jumbo{
+   padding: 3em; 
+  background:#ff0;
+  border-bottom:1px solid #000;
+   background-repeat: no-repeat;
+   background-image: url('/img/me-with-glasses.jpg');
+   background-position: center;
+   background-size: cover;
+}
+.jumbo-title{
+  
+}
+.container{
+  max-width: 1024px;
+  margin: 0 auto;
+}
+/*table*/
+.tg{margin-top:1em;}
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-fqys{background-color:#333333;color:#ffffff;vertical-align:top}
+.tg .tg-6c3r{background-color:#013300;vertical-align:top}
+.tg .tg-35ul{font-weight:bold;background-color:#f8ff00;text-align:center;vertical-align:top; box-shadow: 0 -2px 1px #000, -1px -5px 2px #fff;}
+.tg .tg-e2il{background-color:#333333;color:#013300;vertical-align:top}
+.tg .tg-i68r{font-weight:bold;background-color:#f8ff00;vertical-align:top}
+.tg .tg-var{box-shadow: 0 -2px 1px #000;}
+
+/* Item */
+.menu-item{
+  margin: 1em 0;
+  padding: 1em 0.1em 0em 0.1em;
+  border-bottom:1px solid #000;
+  background: white
+}
+.menu-item:before{
+  content:'';
+  display:inline-block;
+  width:1em;
+  height:1em;
+  background:#222;
+  margin-right:1em
+}
+
+/*  slide area */
+.slide-area{
+  min-height: 6em;
+  min-height: 40vw;
+}
+
+.slide-area:after,
+.clear-fix,
+.clear-fix:after,
+.clear-fix:before{
+  content:'';
+  display: block;
+  clear: both;
+}
+
+.slide-area + .slide-area{
+  margin-bottom: 3em;
+}
+
+.xp-item{
+  border: 1px solid transparent;
+  color:#fff;
+}
+
+.xp-item {
+  float:left;
+   clear:both;
+  padding: 1em;
+  text-align: right;
+  border-right-color: #fff;
+  position:relative
+}
+
+.xp-item:before {
+  content:'';
+  width:1em;
+  height:1em;
+  background:#fff;
+  display:inline-block;
+  position:absolute;
+  right: -9px;
+  top:-1px;
+  transition: transform 0.3s
+}
+
+.xp-item:hover:before{
+  transform:scale(1.5);
+}
+.xp-item:nth-child(even){
+  float:right;
+  text-align: left;
+  border-left-color: #fff;
+  border-right-color: transparent;
+}
+
+.xp-item:nth-child(even):before{
+  left:-10px;
+  
+}
+
+.xp-item{
+  width: 50%;
+}
+
+.projects{
+  color:#fff;
+}
+
+.project-item{
+  border: 1px solid #fff;
+  width: 33%;
+  padding: 1em;
+  box-shadow: 3px 3px 5px #fff;  
+  transform: 1.5s box-shadow;
+}
+
+.project-item:hover{
+  box-shadow: 0px 0px 0px #fff;  
+  transform: 1.5s box-shadow;
+}
+
+.project-item img{
+  max-width: 100%;
+}
+
+.project-title{
+  margin: 1em 0;
+}
+.project-content{
+  
+}
+
+/* break  mobile 750 */
+/* 
+  menu collapse
+  table skills 100%;
+*/
+
+
+
+.hamburger{
+  color:#FFF;
+}
+
+.hamburger{
+  border: 1px solid #fff;
+  width: 5em;
+  text-align: center;
+  margin: 1em;
+  margin-left:100%;
+  position: relative;
+  left: -6em;
+}
+
+.hamburger:hover,
+.hamburger.active{
+  background: #fff;
+  color:#222;
+}
+
+
+.cta{
+  background:#fff;
+}
+
+.cta.txt.inner{
+  background:  #ff0 ;
+}
+
+.c1{
+  width: 50%;
+}
+
+
+@media (min-width: 750px) 
+{
+  
+  .medium-hide{
+    display: none;
+  } 
+  
+ 
+}
+
+@media (max-width: 750px) 
+{
+  .small-hide
+   {
+    display: none;
+   }
+
+   .tg{
+    width: 100%;
+   }
+
+   .c1{width: 100% }
+  .project-item{
+    border: 1px solid #fff;
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+
+.blog-post{
+  background: #fff;
+  padding: 1em;
+}
+
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4,
+.blog-post h5{
+  margin-top: 1em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px dashed #222;
+  
+}
+
+
+.blog-post p{
+  padding: 1em;
+  line-height: 1.6em;
+}
+
+
+.blog-post blockquote{
+  box-shadow: 2px 2px 7px -2px #222;
+}
+
+.blog-post blockquote{
+  quotes: "“" "”" "‘" "’";
+}
+.blog-post blockquote:before {
+    content: open-quote;
+}
+.blog-post blockquote:after {
+    content: close-quote;
+  text-align:right;
+}
+
+
+.blog-post blockquote:before,
+.blog-post blockquote:after{
+  display:block;  
+  font-size: 2em;
+}
+
+.blog-post blockquote strong{
+  color:#fff;
+  background: #000;
+}

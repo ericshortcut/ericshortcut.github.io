@@ -1,0 +1,21 @@
+Name:                prova
+Version:             0.0.1
+Synopsis:            Correção das provas da FATEC BS
+description:         Correção das provas da FATEC BS - ADS (Manhã/Noite) - SI (tarde)
+Homepage:            http://none
+License:             BSD3
+License-file:        LICENSE.md
+Author:              Eric Andrade
+Maintainer:          ericshortcut@gmail.com
+Category:            None
+Build-type:          Simple
+Cabal-version:       >=1.6
+
+Executable ads-noite
+  Main-is:             main.hs
+  
+Library
+  Build-Depends:       base >= 4 && < 5
+  Exposed-modules:     ADSM
+                     , ADSN
+                     , SI
