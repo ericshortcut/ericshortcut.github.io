@@ -2,7 +2,7 @@
 
 # Site Settings
 title: Eric Andrade | Resume
-url: 'http://ericshortcut.tk'
+# url: 'http://ericshortcut.tk'
 baseurl: '' #change it according to your repository name
 description: Eric Resume Powered by Jekyll
 # Style will be applied only after restarting the build or serve. Just choose one of the options.
